@@ -42,6 +42,15 @@
             z-index: 1;
         }
 
+        .area-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+
         .split-side::before {
             content: '';
             position: absolute;
@@ -168,17 +177,19 @@
     <div class="split-container">
         <div class="divider"></div>
 
-        <a href="restrukturyzacje/" class="split-side side-restrukturyzacje">
+        <div class="split-side side-restrukturyzacje">
+            <a href="restrukturyzacje/" class="area-link"></a>
             <h2>Restrukturyzacje</h2>
             <p>Ochrona majątku, zatrzymanie egzekucji i redukcja długów firmowych nawet o 70%.</p>
-            <span class="btn">Wejdź na stronę</span>
-        </a>
+            <div class="btn">Wejdź na stronę</div>
+        </div>
 
-        <a href="kredyty-zagraniczne/" class="split-side side-kredyty">
+        <div class="split-side side-kredyty">
+            <a href="kredyty-zagraniczne/" class="area-link"></a>
             <h2>Kredyty Zagraniczne</h2>
             <p>Unieważnienie kredytów CHF, EUR i USD. Odzyskaj nadpłacone raty i uwolnij się od długu.</p>
-            <span class="btn">Wejdź na stronę</span>
-        </a>
+            <div class="btn">Wejdź na stronę</div>
+        </div>
     </div>
 </body>
 
