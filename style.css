@@ -138,6 +138,59 @@ p {
     align-items: center;
 }
 
+/* New Split Hero (Full Bleed) */
+.hero-split {
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-split-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 180px 80px 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-split-visual {
+    flex: 1;
+    position: relative;
+    min-height: 600px;
+}
+
+.hero-split-visual img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Removed border radius and shadows for full bleed effect */
+}
+
+@media (max-width: 968px) {
+    .hero-split {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .hero-split-content {
+        padding: 140px 24px 60px;
+    }
+
+    .hero-split-visual {
+        min-height: 400px;
+        order: -1;
+    }
+}
+
 .hero h1 {
     margin-bottom: 24px;
     max-width: 18ch;
@@ -388,6 +441,7 @@ section {
         padding: 80px 0;
     }
 }
+
 /* Restrukturyzacje & General Card fixes */
 .comp-card {
     background-color: white;
@@ -430,7 +484,7 @@ section {
 }
 
 details summary::-webkit-details-marker {
-  display:none;
+    display: none;
 }
 
 details[open] summary {
