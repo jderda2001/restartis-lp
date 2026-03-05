@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restartis — Prawo i Finanse</title>
+    <meta name="description"
+        content="Profesjonalna pomoc prawna: Restrukturyzacja firm oraz oddłużanie kredytów zagranicznych (CHF/EUR/USD).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+        }
+
+        .split-container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .split-side {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .split-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s ease, filter 0.6s ease;
+            z-index: -1;
+            filter: grayscale(100%) brightness(40%);
+        }
+
+        /* Left Side: Restrukturyzacje */
+        .side-restrukturyzacje::before {
+            background-image: url('assets/images/restructuring-hero.png');
+        }
+
+        /* Right Side: Kredyty */
+        .side-kredyty::before {
+            background-image: url('assets/images/coins-hero.jpg');
+        }
+
+        .split-side:hover {
+            flex: 1.2;
+        }
+
+        .split-side:hover::before {
+            transform: scale(1.05);
+            filter: grayscale(0%) brightness(60%);
+        }
+
+        .split-side h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .split-side p {
+            color: var(--white);
+            font-size: 1.125rem;
+            max-width: 400px;
+            opacity: 0.8;
+            margin-bottom: 32px;
+        }
+
+        .split-side .btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 100px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .split-side:hover .btn {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-overlay {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .logo-overlay img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column;
+            }
+
+            .split-side:hover {
+                flex: 1.5;
+            }
+
+            .logo-overlay img {
+                height: 40px;
+            }
+        }
+
+        /* Divider */
+        .divider {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            .divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo-overlay">
+        <img src="assets/images/logo.png" alt="Restartis Logo">
+    </div>
+
+    <div class="split-container">
+        <div class="divider"></div>
+
+        <a href="restrukturyzacje/" class="split-side side-restrukturyzacje">
+            <h2>Restrukturyzacje</h2>
+            <p>Ochrona majątku, zatrzymanie egzekucji i redukcja długów firmowych nawet o 70%.</p>
+            <span class="btn">Wejdź na stronę</span>
+        </a>
+
+        <a href="kredyty-zagraniczne/" class="split-side side-kredyty">
+            <h2>Kredyty Zagraniczne</h2>
+            <p>Unieważnienie kredytów CHF, EUR i USD. Odzyskaj nadpłacone raty i uwolnij się od długu.</p>
+            <span class="btn">Wejdź na stronę</span>
+        </a>
+    </div>
+</body>
+
+</html>
