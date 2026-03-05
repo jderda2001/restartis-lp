@@ -388,3 +388,51 @@ section {
         padding: 80px 0;
     }
 }
+/* Restrukturyzacje & General Card fixes */
+.comp-card {
+    background-color: white;
+    padding: 32px;
+    border-radius: 32px;
+    border: 1px solid #F1F5F9;
+    position: relative;
+}
+
+.comp-card.danger {
+    background-color: #FFF5F5;
+}
+
+.comp-card.danger h3 {
+    color: #E53E3E;
+}
+
+.comp-card.positive {
+    background-color: #F0FFF4;
+}
+
+/* Form selection highlight */
+.option-pill.selected {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.badge {
+    transition: var(--transition);
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+}
+
+.status-tag {
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+details[open] summary {
+    color: #D4AF37;
+}
