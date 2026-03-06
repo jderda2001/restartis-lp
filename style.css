@@ -159,10 +159,11 @@ p {
     z-index: 2;
 }
 
+/* Full‑bleed hero visual */
 .hero-split-visual {
     flex: 1;
     position: relative;
-    min-height: 600px;
+    overflow: hidden;
 }
 
 .hero-split-visual img {
@@ -172,7 +173,21 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Removed border radius and shadows for full bleed effect */
+}
+
+/* Reduce navbar padding on larger screens for a slimmer header */
+@media (min-width: 769px) {
+    .navbar {
+        padding: 16px 0;
+    }
+}
+
+/* Mobile tweaks for option pills (category selectors) */
+@media (max-width: 768px) {
+    .option-pill {
+        font-size: 0.9rem;
+        padding: 16px 20px;
+    }
 }
 
 @media (max-width: 968px) {
@@ -411,34 +426,38 @@ section {
     }
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
+/* Mobile adjustments */
+@media (max-width: 768px) {
+
+    /* Reduce navbar height */
+    .navbar {
+        padding: 12px 0;
     }
 
-    .hero h1 {
-        margin: 0 auto 24px;
+    .nav-content a.btn {
+        font-size: 0.75rem;
+        padding: 8px 16px;
     }
 
-    .hero p {
-        margin: 0 auto 40px;
+    /* Reduce heading sizes */
+    .hero-split-content h1 {
+        font-size: 2rem;
     }
 
-    .grid-3,
-    .grid-2 {
-        grid-template-columns: 1fr;
+    .hero-split-content p {
+        font-size: 1rem;
     }
 
-    .section-bg {
-        margin: 0;
-        border-radius: 0;
+    /* Ensure hero image covers full area */
+    .hero-split-visual img {
+        object-fit: cover;
+        background-color: var(--primary);
     }
 
-    .section-padding {
-        padding: 80px 0;
+    /* Adjust button text size in split sides */
+    .split-side .btn {
+        font-size: 0.75rem;
+        padding: 12px 24px;
     }
 }
 
