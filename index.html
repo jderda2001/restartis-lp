@@ -146,11 +146,12 @@
 
             .split-side {
                 height: 50vh;
-                padding: 24px;
+                padding: 32px 20px;
             }
 
             .split-side::before {
-                filter: grayscale(0%) brightness(40%);
+                filter: grayscale(0%) brightness(50%);
+                /* Made it brighter */
             }
 
             .split-side:hover {
@@ -158,16 +159,27 @@
             }
 
             .split-side h2 {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
+                margin-bottom: 12px;
             }
 
             .split-side p {
-                font-size: 0.9375rem;
-                margin-bottom: 20px;
+                font-size: 0.875rem;
+                margin-bottom: 24px;
+                max-width: 280px;
+            }
+
+            .logo-overlay {
+                top: 20px;
             }
 
             .logo-overlay img {
-                height: 40px;
+                height: 32px;
+            }
+
+            .split-side .btn {
+                padding: 12px 24px;
+                font-size: 0.75rem;
             }
         }
 
