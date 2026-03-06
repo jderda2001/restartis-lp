@@ -12,9 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', '[[GTM_ID]]');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- SEO & Metadata -->
+    <meta name="google-site-verification" content="[[GSC_VERIFICATION]]">
+    <meta property="og:title" content="Restartis — Unieważnienie Kredytów Walutowych">
+    <meta property="og:description"
+        content="Odzyskaj swoją wolność finansową. Unieważnimy Twój kredyt albo nic nam nie zapłacisz.">
+    <meta property="og:image" content="../assets/images/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Restartis Kredyty Zagraniczne",
+      "image": "https://restartis.pl/assets/images/logo.png",
+      "@id": "https://restartis.pl/kredyty-zagraniczne/",
+      "url": "https://restartis.pl/kredyty-zagraniczne/",
+      "telephone": "[[PHONE_NUMBER]]",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      }
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=[[GTM_ID]]" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <nav class="navbar">
         <div class="container nav-content">
             <div class="logo"><img src="../assets/images/logo.png" alt="Restartis Logo"
@@ -284,6 +323,12 @@
                             alt="Restartis Logo" style="height: 32px; width: auto;"></div>
                     <p style="max-width: 400px;">Pomagamy frankowiczom i posiadaczom kredytów walutowych odzyskać ich
                         pieniądze. Najwyższa skuteczność w Polsce.</p>
+                    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 8px;">
+                        <a href="tel:[[PHONE_NUMBER]]" data-track="phone-click"
+                            style="color: var(--primary); text-decoration: none; font-weight: 700;">[[PHONE_NUMBER]]</a>
+                        <a href="mailto:[[EMAIL_ADDRESS]]" data-track="email-click"
+                            style="color: var(--text-muted); text-decoration: none;">[[EMAIL_ADDRESS]]</a>
+                    </div>
                 </div>
                 <div style="font-size: 0.875rem;">
                     <p style="margin-bottom: 12px; font-weight: 700; color: #0A0F2C;">MODUŁ SOCIAL PROOF</p>

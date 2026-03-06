@@ -490,6 +490,41 @@ section {
         padding: 16px 20px;
         font-size: 0.875rem;
     }
+
+    /* Hide hero visual (e.g. coins stack) on mobile */
+    .hero-visual {
+        display: none !important;
+    }
+
+    /* Convert Grids to Swipeable Sliders */
+    .grid-3,
+    .grid-2 {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 20px 0;
+        margin-left: -24px;
+        margin-right: -24px;
+        padding-left: 24px;
+        padding-right: 24px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .grid-3::-webkit-scrollbar,
+    .grid-2::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .pillar-card,
+    .comp-card {
+        flex: 0 0 85% !important;
+        scroll-snap-align: center;
+        min-width: 280px;
+    }
 }
 
 /* Extra small screens fix for long words */

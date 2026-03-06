@@ -12,9 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', '[[GTM_ID]]');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- SEO & Metadata -->
+    <meta name="google-site-verification" content="[[GSC_VERIFICATION]]">
+    <meta property="og:title" content="Restartis — Restrukturyzacje i Ochrona Przed Egzekucją">
+    <meta property="og:description"
+        content="Zatrzymaj licytację komorniczą w mniej niż 48h. Uzyskaj ochronę przed egzekucją i zredukuj długi nawet o 70%.">
+    <meta property="og:image" content="../assets/images/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Restartis Restrukturyzacje",
+      "image": "https://restartis.pl/assets/images/logo.png",
+      "@id": "https://restartis.pl/restrukturyzacje/",
+      "url": "https://restartis.pl/restrukturyzacje/",
+      "telephone": "[[PHONE_NUMBER]]",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      }
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=[[GTM_ID]]" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <nav class="navbar">
         <div class="container nav-content">
             <div class="logo"><img src="../assets/images/logo.png" alt="Restartis Logo"
@@ -298,6 +337,12 @@
                     <div class="logo" style="margin-bottom: 20px;"><img src="../assets/images/logo.png"
                             alt="Restartis Logo" style="height: 32px; width: auto;"></div>
                     <p style="max-width: 400px;">Restartis — Profesjonalna restrukturyzacja i ochrona majątku firm.</p>
+                    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 8px;">
+                        <a href="tel:[[PHONE_NUMBER]]" data-track="phone-click"
+                            style="color: var(--primary); text-decoration: none; font-weight: 700;">[[PHONE_NUMBER]]</a>
+                        <a href="mailto:[[EMAIL_ADDRESS]]" data-track="email-click"
+                            style="color: var(--text-muted); text-decoration: none;">[[EMAIL_ADDRESS]]</a>
+                    </div>
                 </div>
                 <div style="font-size: 0.875rem; opacity: 0.6;">
                     <p>© 2026 Restartis. Wszelkie prawa zastrzeżone.</p>

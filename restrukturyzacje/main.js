@@ -144,10 +144,15 @@ function initRestrukturyzacjeForm() {
             });
 
             if (response.ok) {
-                steps.forEach(s => s.classList.remove('active'));
-                progressContainer.style.display = 'none';
-                successScreen.style.display = 'block';
-                successScreen.scrollIntoView({ behavior: 'smooth' });
+                // Tracking
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'form_submit',
+                    'service': 'restrukturyzacje'
+                });
+
+                // Redirect to thank you page
+                window.location.href = '../thank-you/index.html';
             } else {
                 throw new Error('Błąd serwera');
             }

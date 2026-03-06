@@ -12,6 +12,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', '[[GTM_ID]]');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- SEO & Metadata -->
+    <meta name="google-site-verification" content="[[GSC_VERIFICATION]]">
+    <meta property="og:title" content="Restartis — Prawo i Finanse">
+    <meta property="og:description"
+        content="Profesjonalna pomoc prawna: Restrukturyzacja firm oraz oddłużanie kredytów zagranicznych.">
+    <meta property="og:image" content="assets/images/logo.png">
+
+    <style>
+        /* Schema.org Structured Data */
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Restartis",
+      "url": "https://restartis.pl",
+      "logo": "https://restartis.pl/assets/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "[[PHONE_NUMBER]]",
+        "contactType": "customer service",
+        "email": "[[EMAIL_ADDRESS]]"
+      }
+    }
+    </script>
     <style>
         body,
         html {
@@ -203,6 +240,11 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=[[GTM_ID]]" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div class="logo-overlay">
         <img src="assets/images/logo.png" alt="Restartis Logo">
     </div>
@@ -223,6 +265,15 @@
             <p>Unieważnienie kredytów CHF, EUR i USD. Odzyskaj nadpłacone raty i uwolnij się od długu.</p>
             <div class="btn">Wejdź na stronę</div>
         </div>
+    </div>
+
+    <!-- Contact Footer (Hidden or minimal for Gateway) -->
+    <div
+        style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10; font-size: 0.8rem; display: flex; gap: 20px;">
+        <a href="tel:[[PHONE_NUMBER]]" data-track="phone-click"
+            style="color: white; text-decoration: none; opacity: 0.7;">[[PHONE_NUMBER]]</a>
+        <a href="mailto:[[EMAIL_ADDRESS]]" data-track="email-click"
+            style="color: white; text-decoration: none; opacity: 0.7;">[[EMAIL_ADDRESS]]</a>
     </div>
 </body>
 
