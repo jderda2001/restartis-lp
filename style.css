@@ -22,6 +22,7 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-main);
@@ -29,6 +30,8 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 h1,
@@ -49,11 +52,11 @@ h4 {
 
 /* Typography Scale */
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 h3 {
@@ -441,11 +444,11 @@ section {
 
     /* Reduce heading sizes */
     .hero-split-content h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .hero-split-content p {
-        font-size: 1rem;
+        font-size: 0.9375rem;
     }
 
     /* Ensure hero image covers full area */
@@ -458,6 +461,20 @@ section {
     .split-side .btn {
         font-size: 0.75rem;
         padding: 12px 24px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section-bg {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .form-wrapper {
+        padding: 40px 24px;
+        border-radius: 24px;
     }
 }
 

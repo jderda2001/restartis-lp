@@ -17,7 +17,7 @@
         html {
             height: 100%;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
             font-family: 'Inter', sans-serif;
             background-color: var(--primary);
         }
@@ -63,7 +63,7 @@
             background-position: center;
             transition: transform 0.8s ease, filter 0.6s ease;
             z-index: -1;
-            filter: grayscale(100%) brightness(40%);
+            filter: grayscale(100%) brightness(50%);
         }
 
         /* Left Side: Restrukturyzacje */
@@ -87,7 +87,7 @@
 
         .split-side h2 {
             color: var(--white);
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -0.02em;
@@ -140,10 +140,30 @@
         @media (max-width: 768px) {
             .split-container {
                 flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .split-side {
+                height: 50vh;
+                padding: 24px;
+            }
+
+            .split-side::before {
+                filter: grayscale(0%) brightness(40%);
             }
 
             .split-side:hover {
-                flex: 1.5;
+                flex: 1;
+            }
+
+            .split-side h2 {
+                font-size: 1.75rem;
+            }
+
+            .split-side p {
+                font-size: 0.9375rem;
+                margin-bottom: 20px;
             }
 
             .logo-overlay img {
