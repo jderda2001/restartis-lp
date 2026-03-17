@@ -85,9 +85,26 @@ function initForm() {
     }
 
     function validatePhone(phone) {
-        // Basic Polish phone validation (9 digits, ignore spaces/hyphens)
         const cleanPhone = phone.replace(/[\s-]/g, '');
         return /^(?:\+48)?\d{9}$/.test(cleanPhone);
+    }
+
+    function showFieldError(input, message) {
+        clearFieldError(input);
+        input.classList.add('field-error');
+        const msg = document.createElement('span');
+        msg.className = 'field-error-msg';
+        msg.textContent = message;
+        input.insertAdjacentElement('afterend', msg);
+        input.addEventListener('input', () => clearFieldError(input), { once: true });
+    }
+
+    function clearFieldError(input) {
+        input.classList.remove('field-error');
+        const next = input.nextElementSibling;
+        if (next && next.classList.contains('field-error-msg')) {
+            next.remove();
+        }
     }
 
     document.getElementById('submit-lead')?.addEventListener('click', async () => {
@@ -100,24 +117,30 @@ function initForm() {
         formData.phone = phoneInput.value.trim();
         formData.email = emailInput.value.trim();
 
-        // Validation Logic
-        if (!formData.name || formData.name.split(' ').length < 2) {
-            alert('Prosimy o podanie pełnego imienia i nazwiska.');
-            nameInput.focus();
-            return;
-        }
-
-        if (!validatePhone(formData.phone)) {
-            alert('Prosimy o podanie poprawnego numeru telefonu (9 cyfr).');
-            phoneInput.focus();
-            return;
-        }
+        let hasError = false;
 
         if (!validateEmail(formData.email)) {
-            alert('Prosimy o podanie poprawnego adresu e-mail.');
-            emailInput.focus();
-            return;
+            showFieldError(emailInput, 'Wpisz poprawny adres e-mail.');
+            hasError = true;
         }
+        if (!validatePhone(formData.phone)) {
+            showFieldError(phoneInput, 'Wpisz poprawny numer telefonu (9 cyfr, np. 500 100 200).');
+            hasError = true;
+        }
+        if (!formData.name || formData.name.split(' ').length < 2) {
+            showFieldError(nameInput, 'Wpisz pełne imię i nazwisko.');
+            hasError = true;
+        }
+
+        const consentCheckbox = document.getElementById('form-consent');
+        const consentError = document.getElementById('consent-error');
+        if (!consentCheckbox.checked) {
+            consentError.style.display = 'block';
+            consentCheckbox.addEventListener('change', () => { consentError.style.display = 'none'; }, { once: true });
+            hasError = true;
+        }
+
+        if (hasError) return;
 
         const originalText = submitBtn.innerText;
         submitBtn.innerText = 'Wysyłanie...';

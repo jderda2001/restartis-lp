@@ -56,6 +56,24 @@ function initRestrukturyzacjeForm() {
         return /^\d{10}$/.test(cleanNIP);
     }
 
+    function showFieldError(input, message) {
+        clearFieldError(input);
+        input.classList.add('field-error');
+        const msg = document.createElement('span');
+        msg.className = 'field-error-msg';
+        msg.textContent = message;
+        input.insertAdjacentElement('afterend', msg);
+        input.addEventListener('input', () => clearFieldError(input), { once: true });
+    }
+
+    function clearFieldError(input) {
+        input.classList.remove('field-error');
+        const next = input.nextElementSibling;
+        if (next && next.classList.contains('field-error-msg')) {
+            next.remove();
+        }
+    }
+
     // Step 1: Contact
     nextStep1Btn?.addEventListener('click', () => {
         const nameInput = document.getElementById('form-name');
@@ -68,26 +86,26 @@ function initRestrukturyzacjeForm() {
         formData.email = emailInput.value.trim();
         formData.nip = nipInput.value.trim().replace(/[\s-]/g, '');
 
-        if (!formData.name || formData.name.split(' ').length < 2) {
-            alert('Prosimy o podanie pełnego imienia i nazwiska.');
-            nameInput.focus();
-            return;
-        }
-        if (!validatePhone(formData.phone)) {
-            alert('Prosimy o podanie poprawnego numeru telefonu (9 cyfr).');
-            phoneInput.focus();
-            return;
+        let hasError = false;
+
+        if (!validateNIP(formData.nip)) {
+            showFieldError(nipInput, 'Wpisz poprawny 10-cyfrowy NIP firmy.');
+            hasError = true;
         }
         if (!validateEmail(formData.email)) {
-            alert('Prosimy o podanie poprawnego adresu e-mail.');
-            emailInput.focus();
-            return;
+            showFieldError(emailInput, 'Wpisz poprawny adres e-mail.');
+            hasError = true;
         }
-        if (!validateNIP(formData.nip)) {
-            alert('Prosimy o podanie poprawnego 10-cyfrowego NIP-u firmy.');
-            nipInput.focus();
-            return;
+        if (!validatePhone(formData.phone)) {
+            showFieldError(phoneInput, 'Wpisz poprawny numer telefonu (9 cyfr, np. 500 100 200).');
+            hasError = true;
         }
+        if (!formData.name || formData.name.split(' ').length < 2) {
+            showFieldError(nameInput, 'Wpisz pełne imię i nazwisko.');
+            hasError = true;
+        }
+
+        if (hasError) return;
 
         goToStep(2);
     });
@@ -125,10 +143,23 @@ function initRestrukturyzacjeForm() {
 
     // Final Submission
     submitBtn?.addEventListener('click', async () => {
+        const consentCheckbox = document.getElementById('form-consent');
+        const consentError = document.getElementById('consent-error');
+
+        let hasError = false;
+
         if (!formData.creditors) {
             alert('Prosimy o wybranie głównych wierzycieli.');
-            return;
+            hasError = true;
         }
+
+        if (!consentCheckbox.checked) {
+            consentError.style.display = 'block';
+            consentCheckbox.addEventListener('change', () => { consentError.style.display = 'none'; }, { once: true });
+            hasError = true;
+        }
+
+        if (hasError) return;
 
         const originalText = submitBtn.innerText;
         submitBtn.innerText = 'Wysyłanie...';

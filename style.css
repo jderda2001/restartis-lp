@@ -570,6 +570,43 @@ section {
     border-color: var(--primary);
 }
 
+/* Consent checkbox */
+.consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    width: 100%;
+}
+
+.consent-label input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* Form validation errors */
+.option-pill.field-error {
+    border: 2px solid #e53e3e !important;
+    background: #fff5f5 !important;
+}
+
+.field-error-msg {
+    display: block;
+    width: 100%;
+    color: #e53e3e;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: -10px;
+    padding-left: 4px;
+}
+
 .badge {
     transition: var(--transition);
 }

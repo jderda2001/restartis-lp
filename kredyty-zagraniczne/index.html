@@ -24,6 +24,15 @@
         })(window, document, 'script', 'dataLayer', 'GTM-N3G6CHQS');</script>
     <!-- End Google Tag Manager -->
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4PYV9QH9X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Q4PYV9QH9X');
+    </script>
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
@@ -295,6 +304,11 @@
                                 style="cursor: text; background: white; border: 1px solid #E2E8F0;" id="form-phone">
                             <input type="email" placeholder="Adres e-mail" class="option-pill"
                                 style="cursor: text; background: white; border: 1px solid #E2E8F0;" id="form-email">
+                            <label class="consent-label">
+                                <input type="checkbox" id="form-consent">
+                                <span>Wyrażam zgodę na kontakt w celach marketingowych (telefon, e-mail, SMS) przez Restartis. Zgoda jest dobrowolna i można ją wycofać w każdej chwili.</span>
+                            </label>
+                            <span class="field-error-msg" id="consent-error" style="display:none; margin-top: -10px;">Prosimy o zaznaczenie zgody na kontakt.</span>
                             <button class="btn btn-primary" id="submit-lead" style="margin-top: 20px;">Wyślij do
                                 bezpłatnej analizy</button>
                         </div>
