@@ -13,55 +13,63 @@
     });
   }
 
-  function hideBanner(banner) {
-    banner.style.transform = 'translateY(100%)';
-    banner.style.opacity = '0';
-    setTimeout(function () { banner.remove(); }, 400);
+  function hideModal(overlay) {
+    overlay.style.opacity = '0';
+    setTimeout(function () { overlay.remove(); }, 300);
   }
 
-  function showBanner() {
-    var banner = document.createElement('div');
-    banner.id = 'cookie-banner';
-    banner.innerHTML =
-      '<div style="max-width:720px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;">' +
-        '<p style="margin:0;flex:1;min-width:220px;font-size:14px;line-height:1.6;color:#0A0F2C;">' +
-          'Używamy plików cookie do analizy ruchu i wyświetlania dopasowanych reklam. ' +
-          'Możesz zaakceptować lub odrzucić ich użycie.' +
-        '</p>' +
-        '<div style="display:flex;gap:10px;flex-shrink:0;">' +
-          '<button id="cookie-reject" style="padding:10px 20px;border:1.5px solid #0A0F2C;background:transparent;color:#0A0F2C;border-radius:8px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;">Odrzuć</button>' +
-          '<button id="cookie-accept" style="padding:10px 20px;border:none;background:#0A0F2C;color:#fff;border-radius:8px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;">Akceptuj</button>' +
-        '</div>' +
-      '</div>';
-
-    Object.assign(banner.style, {
+  function showModal() {
+    var overlay = document.createElement('div');
+    overlay.id = 'cookie-overlay';
+    Object.assign(overlay.style, {
       position: 'fixed',
-      bottom: '0',
-      left: '0',
-      right: '0',
-      background: '#F7F8FC',
-      borderTop: '1px solid #E2E8F0',
-      padding: '18px 24px',
+      inset: '0',
+      background: 'rgba(10,15,44,0.65)',
       zIndex: '99999',
-      boxShadow: '0 -4px 24px rgba(10,15,44,0.10)',
-      transform: 'translateY(0)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '16px',
       opacity: '1',
-      transition: 'transform 0.4s ease, opacity 0.4s ease',
+      transition: 'opacity 0.3s ease',
       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
     });
 
-    document.body.appendChild(banner);
+    var modal = document.createElement('div');
+    Object.assign(modal.style, {
+      background: '#fff',
+      borderRadius: '16px',
+      padding: '32px',
+      maxWidth: '480px',
+      width: '100%',
+      boxShadow: '0 24px 80px rgba(10,15,44,0.25)'
+    });
+
+    modal.innerHTML =
+      '<h2 style="margin:0 0 16px;font-size:18px;font-weight:800;color:#0A0F2C;">Pliki cookie</h2>' +
+      '<p style="margin:0 0 24px;font-size:14px;line-height:1.7;color:#64748B;">' +
+        'Używamy plików cookie do analizy ruchu i wyświetlania dopasowanych reklam. ' +
+        'Twoje dane są przetwarzane zgodnie z RODO. ' +
+        'Wybierz czy wyrażasz na to zgodę.' +
+      '</p>' +
+      '<div style="display:flex;gap:10px;">' +
+        '<button id="cookie-reject" style="flex:1;padding:12px;border:1.5px solid #E2E8F0;background:#fff;color:#64748B;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;">Odrzuć</button>' +
+        '<button id="cookie-accept" style="flex:1;padding:12px;border:none;background:#0A0F2C;color:#fff;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:700;">Akceptuj wszystkie</button>' +
+      '</div>';
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
 
     document.getElementById('cookie-accept').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'granted');
       updateConsent(true);
-      hideBanner(banner);
+      hideModal(overlay);
     });
 
     document.getElementById('cookie-reject').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'denied');
       updateConsent(false);
-      hideBanner(banner);
+      hideModal(overlay);
     });
   }
 
@@ -72,9 +80,9 @@
     updateConsent(false);
   } else {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', showBanner);
+      document.addEventListener('DOMContentLoaded', showModal);
     } else {
-      showBanner();
+      showModal();
     }
   }
 })();
