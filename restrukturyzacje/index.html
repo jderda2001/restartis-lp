@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
+    <!-- Consent Mode v2 - default denied before any Google tag -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -23,6 +36,9 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-N3G6CHQS');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Cookie Consent -->
+    <script src="../consent.js"></script>
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4PYV9QH9X"></script>
