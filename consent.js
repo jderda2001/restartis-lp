@@ -111,6 +111,7 @@
       '<p style="margin:0 0 24px;font-size:14px;line-height:1.7;color:#64748B;">' +
         'Używamy plików cookie do analizy ruchu i wyświetlania dopasowanych reklam. ' +
         'Twoje dane są przetwarzane zgodnie z RODO. ' +
+        'Więcej informacji w <a href="/polityka-prywatnosci/" style="color:#0A0F2C;font-weight:600;">Polityce Prywatności</a>. ' +
         'Wybierz czy wyrażasz na to zgodę.' +
       '</p>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;">' +
